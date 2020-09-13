@@ -1,0 +1,11 @@
+---
+#
+# Playbook to install the ES
+#
+- hosts: elasticsearch-cluster
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  roles:
+  - { role: elasticsearch }
+

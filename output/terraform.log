@@ -1,0 +1,1248 @@
+terraform apply
+
+An execution plan has been generated and is shown below.
+Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  + aws_instance.elasticsearch-cluster
+      id:                                    <computed>
+      ami:                                   "ami-07585467"
+      arn:                                   <computed>
+      associate_public_ip_address:           <computed>
+      availability_zone:                     <computed>
+      cpu_core_count:                        <computed>
+      cpu_threads_per_core:                  <computed>
+      ebs_block_device.#:                    <computed>
+      ephemeral_block_device.#:              <computed>
+      get_password_data:                     "false"
+      host_id:                               <computed>
+      instance_state:                        <computed>
+      instance_type:                         "t2.medium"
+      ipv6_address_count:                    <computed>
+      ipv6_addresses.#:                      <computed>
+      key_name:                              "kp-cm-base"
+      metadata_options.#:                    <computed>
+      network_interface.#:                   <computed>
+      network_interface_id:                  <computed>
+      outpost_arn:                           <computed>
+      password_data:                         <computed>
+      placement_group:                       <computed>
+      primary_network_interface_id:          <computed>
+      private_dns:                           <computed>
+      private_ip:                            <computed>
+      public_dns:                            <computed>
+      public_ip:                             <computed>
+      root_block_device.#:                   <computed>
+      security_groups.#:                     <computed>
+      source_dest_check:                     "true"
+      subnet_id:                             "subnet-8da6bcef"
+      tags.%:                                "3"
+      tags.Location:                         "colifornia"
+      tags.Name:                             "elasticsearch-cluster-1"
+      tags.Subsystem:                        "Elasticsearch"
+      tenancy:                               <computed>
+      volume_tags.%:                         <computed>
+      vpc_security_group_ids.#:              <computed>
+
+  + aws_security_group.elastic-sg
+      id:                                    <computed>
+      arn:                                   <computed>
+      description:                           "Allow incoming rules connections."
+      egress.#:                              "1"
+      egress.482069346.cidr_blocks.#:        "1"
+      egress.482069346.cidr_blocks.0:        "0.0.0.0/0"
+      egress.482069346.description:          ""
+      egress.482069346.from_port:            "0"
+      egress.482069346.ipv6_cidr_blocks.#:   "0"
+      egress.482069346.prefix_list_ids.#:    "0"
+      egress.482069346.protocol:             "-1"
+      egress.482069346.security_groups.#:    "0"
+      egress.482069346.self:                 "false"
+      egress.482069346.to_port:              "0"
+      ingress.#:                             "5"
+      ingress.2500694996.cidr_blocks.#:      "1"
+      ingress.2500694996.cidr_blocks.0:      "0.0.0.0/0"
+      ingress.2500694996.description:        ""
+      ingress.2500694996.from_port:          "9200"
+      ingress.2500694996.ipv6_cidr_blocks.#: "0"
+      ingress.2500694996.prefix_list_ids.#:  "0"
+      ingress.2500694996.protocol:           "tcp"
+      ingress.2500694996.security_groups.#:  "0"
+      ingress.2500694996.self:               "false"
+      ingress.2500694996.to_port:            "9200"
+      ingress.2541437006.cidr_blocks.#:      "1"
+      ingress.2541437006.cidr_blocks.0:      "0.0.0.0/0"
+      ingress.2541437006.description:        ""
+      ingress.2541437006.from_port:          "22"
+      ingress.2541437006.ipv6_cidr_blocks.#: "0"
+      ingress.2541437006.prefix_list_ids.#:  "0"
+      ingress.2541437006.protocol:           "tcp"
+      ingress.2541437006.security_groups.#:  "0"
+      ingress.2541437006.self:               "false"
+      ingress.2541437006.to_port:            "22"
+      ingress.3162040748.cidr_blocks.#:      "1"
+      ingress.3162040748.cidr_blocks.0:      "157.33.149.77/32"
+      ingress.3162040748.description:        ""
+      ingress.3162040748.from_port:          "9300"
+      ingress.3162040748.ipv6_cidr_blocks.#: "0"
+      ingress.3162040748.prefix_list_ids.#:  "0"
+      ingress.3162040748.protocol:           "tcp"
+      ingress.3162040748.security_groups.#:  "0"
+      ingress.3162040748.self:               "false"
+      ingress.3162040748.to_port:            "9300"
+      ingress.4268538753.cidr_blocks.#:      "1"
+      ingress.4268538753.cidr_blocks.0:      "157.33.149.77/32"
+      ingress.4268538753.description:        ""
+      ingress.4268538753.from_port:          "443"
+      ingress.4268538753.ipv6_cidr_blocks.#: "0"
+      ingress.4268538753.prefix_list_ids.#:  "0"
+      ingress.4268538753.protocol:           "tcp"
+      ingress.4268538753.security_groups.#:  "0"
+      ingress.4268538753.self:               "false"
+      ingress.4268538753.to_port:            "443"
+      ingress.546230602.cidr_blocks.#:       "1"
+      ingress.546230602.cidr_blocks.0:       "10.20.0.0/16"
+      ingress.546230602.description:         ""
+      ingress.546230602.from_port:           "9200"
+      ingress.546230602.ipv6_cidr_blocks.#:  "0"
+      ingress.546230602.prefix_list_ids.#:   "0"
+      ingress.546230602.protocol:            "tcp"
+      ingress.546230602.security_groups.#:   "0"
+      ingress.546230602.self:                "false"
+      ingress.546230602.to_port:             "9200"
+      name:                                  "tf-elastic-sg"
+      owner_id:                              <computed>
+      revoke_rules_on_delete:                "false"
+      tags.%:                                "2"
+      tags.Name:                             "tf-elastic-sg"
+      tags.cm:engg:application:              "ES|Security Group"
+      vpc_id:                                "vpc-305e4252"
+
+
+Plan: 2 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+aws_security_group.elastic-sg: Creating...
+  arn:                                   "" => "<computed>"
+  description:                           "" => "Allow incoming rules connections."
+  egress.#:                              "" => "1"
+  egress.482069346.cidr_blocks.#:        "" => "1"
+  egress.482069346.cidr_blocks.0:        "" => "0.0.0.0/0"
+  egress.482069346.description:          "" => ""
+  egress.482069346.from_port:            "" => "0"
+  egress.482069346.ipv6_cidr_blocks.#:   "" => "0"
+  egress.482069346.prefix_list_ids.#:    "" => "0"
+  egress.482069346.protocol:             "" => "-1"
+  egress.482069346.security_groups.#:    "" => "0"
+  egress.482069346.self:                 "" => "false"
+  egress.482069346.to_port:              "" => "0"
+  ingress.#:                             "" => "5"
+  ingress.2500694996.cidr_blocks.#:      "" => "1"
+  ingress.2500694996.cidr_blocks.0:      "" => "0.0.0.0/0"
+  ingress.2500694996.description:        "" => ""
+  ingress.2500694996.from_port:          "" => "9200"
+  ingress.2500694996.ipv6_cidr_blocks.#: "" => "0"
+  ingress.2500694996.prefix_list_ids.#:  "" => "0"
+  ingress.2500694996.protocol:           "" => "tcp"
+  ingress.2500694996.security_groups.#:  "" => "0"
+  ingress.2500694996.self:               "" => "false"
+  ingress.2500694996.to_port:            "" => "9200"
+  ingress.2541437006.cidr_blocks.#:      "" => "1"
+  ingress.2541437006.cidr_blocks.0:      "" => "0.0.0.0/0"
+  ingress.2541437006.description:        "" => ""
+  ingress.2541437006.from_port:          "" => "22"
+  ingress.2541437006.ipv6_cidr_blocks.#: "" => "0"
+  ingress.2541437006.prefix_list_ids.#:  "" => "0"
+  ingress.2541437006.protocol:           "" => "tcp"
+  ingress.2541437006.security_groups.#:  "" => "0"
+  ingress.2541437006.self:               "" => "false"
+  ingress.2541437006.to_port:            "" => "22"
+  ingress.3162040748.cidr_blocks.#:      "" => "1"
+  ingress.3162040748.cidr_blocks.0:      "" => "157.33.149.77/32"
+  ingress.3162040748.description:        "" => ""
+  ingress.3162040748.from_port:          "" => "9300"
+  ingress.3162040748.ipv6_cidr_blocks.#: "" => "0"
+  ingress.3162040748.prefix_list_ids.#:  "" => "0"
+  ingress.3162040748.protocol:           "" => "tcp"
+  ingress.3162040748.security_groups.#:  "" => "0"
+  ingress.3162040748.self:               "" => "false"
+  ingress.3162040748.to_port:            "" => "9300"
+  ingress.4268538753.cidr_blocks.#:      "" => "1"
+  ingress.4268538753.cidr_blocks.0:      "" => "157.33.149.77/32"
+  ingress.4268538753.description:        "" => ""
+  ingress.4268538753.from_port:          "" => "443"
+  ingress.4268538753.ipv6_cidr_blocks.#: "" => "0"
+  ingress.4268538753.prefix_list_ids.#:  "" => "0"
+  ingress.4268538753.protocol:           "" => "tcp"
+  ingress.4268538753.security_groups.#:  "" => "0"
+  ingress.4268538753.self:               "" => "false"
+  ingress.4268538753.to_port:            "" => "443"
+  ingress.546230602.cidr_blocks.#:       "" => "1"
+  ingress.546230602.cidr_blocks.0:       "" => "10.20.0.0/16"
+  ingress.546230602.description:         "" => ""
+  ingress.546230602.from_port:           "" => "9200"
+  ingress.546230602.ipv6_cidr_blocks.#:  "" => "0"
+  ingress.546230602.prefix_list_ids.#:   "" => "0"
+  ingress.546230602.protocol:            "" => "tcp"
+  ingress.546230602.security_groups.#:   "" => "0"
+  ingress.546230602.self:                "" => "false"
+  ingress.546230602.to_port:             "" => "9200"
+  name:                                  "" => "tf-elastic-sg"
+  owner_id:                              "" => "<computed>"
+  revoke_rules_on_delete:                "" => "false"
+  tags.%:                                "" => "2"
+  tags.Name:                             "" => "tf-elastic-sg"
+  tags.cm:engg:application:              "" => "ES|Security Group"
+  vpc_id:                                "" => "vpc-305e4252"
+aws_security_group.elastic-sg: Still creating... (10s elapsed)
+aws_security_group.elastic-sg: Creation complete after 15s (ID: sg-0c538c43dd732ac5a)
+aws_instance.elasticsearch-cluster: Creating...
+  ami:                               "" => "ami-07585467"
+  arn:                               "" => "<computed>"
+  associate_public_ip_address:       "" => "<computed>"
+  availability_zone:                 "" => "<computed>"
+  cpu_core_count:                    "" => "<computed>"
+  cpu_threads_per_core:              "" => "<computed>"
+  ebs_block_device.#:                "" => "<computed>"
+  ephemeral_block_device.#:          "" => "<computed>"
+  get_password_data:                 "" => "false"
+  host_id:                           "" => "<computed>"
+  instance_state:                    "" => "<computed>"
+  instance_type:                     "" => "t2.medium"
+  ipv6_address_count:                "" => "<computed>"
+  ipv6_addresses.#:                  "" => "<computed>"
+  key_name:                          "" => "kp-cm-base"
+  metadata_options.#:                "" => "<computed>"
+  network_interface.#:               "" => "<computed>"
+  network_interface_id:              "" => "<computed>"
+  outpost_arn:                       "" => "<computed>"
+  password_data:                     "" => "<computed>"
+  placement_group:                   "" => "<computed>"
+  primary_network_interface_id:      "" => "<computed>"
+  private_dns:                       "" => "<computed>"
+  private_ip:                        "" => "<computed>"
+  public_dns:                        "" => "<computed>"
+  public_ip:                         "" => "<computed>"
+  root_block_device.#:               "" => "<computed>"
+  security_groups.#:                 "" => "<computed>"
+  source_dest_check:                 "" => "true"
+  subnet_id:                         "" => "subnet-8da6bcef"
+  tags.%:                            "" => "3"
+  tags.Location:                     "" => "colifornia"
+  tags.Name:                         "" => "elasticsearch-cluster-1"
+  tags.Subsystem:                    "" => "Elasticsearch"
+  tenancy:                           "" => "<computed>"
+  volume_tags.%:                     "" => "<computed>"
+  vpc_security_group_ids.#:          "" => "2"
+  vpc_security_group_ids.3366357948: "" => "sg-0c538c43dd732ac5a"
+  vpc_security_group_ids.3933774139: "" => "sg-0044645c1420c67ec"
+aws_instance.elasticsearch-cluster: Still creating... (10s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (20s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (30s elapsed)
+aws_instance.elasticsearch-cluster: Provisioning with 'remote-exec'...
+aws_instance.elasticsearch-cluster (remote-exec): Connecting to remote host via SSH...
+aws_instance.elasticsearch-cluster (remote-exec):   Host: 54.183.101.85
+aws_instance.elasticsearch-cluster (remote-exec):   User: ubuntu
+aws_instance.elasticsearch-cluster (remote-exec):   Password: false
+aws_instance.elasticsearch-cluster (remote-exec):   Private key: true
+aws_instance.elasticsearch-cluster (remote-exec):   SSH Agent: true
+aws_instance.elasticsearch-cluster (remote-exec):   Checking Host Key: false
+aws_instance.elasticsearch-cluster (remote-exec): Connected!
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Hit:1 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial InRelease
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Connecting to security.ubuntu.com (
+aws_instance.elasticsearch-cluster (remote-exec): Get:2 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates InRelease [109 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [2 InRelease 42.5 kB/109 kB 39%] [Co
+aws_instance.elasticsearch-cluster (remote-exec): 0% [1 InRelease gpgv 247 kB] [2 InRelea
+aws_instance.elasticsearch-cluster (remote-exec): 0% [1 InRelease gpgv 247 kB] [Waiting f
+aws_instance.elasticsearch-cluster (remote-exec): Get:3 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-backports InRelease [107 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [1 InRelease gpgv 247 kB] [3 InRelea
+aws_instance.elasticsearch-cluster (remote-exec): 0% [1 InRelease gpgv 247 kB] [Connectin
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [2 InRelease gpgv 109 kB] [Waiting f
+aws_instance.elasticsearch-cluster (remote-exec): Get:4 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main Sources [868 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [2 InRelease gpgv 109 kB] [4 Sources
+aws_instance.elasticsearch-cluster (remote-exec): 0% [2 InRelease gpgv 109 kB] [Waiting f
+aws_instance.elasticsearch-cluster (remote-exec): 0% [4 Sources store 0 B] [2 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:5 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/restricted Sources [4,808 B]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [4 Sources store 0 B] [2 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:6 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/universe Sources [7,728 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [4 Sources store 0 B] [2 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:7 http://security.ubuntu.com/ubuntu xenial-security InRelease [109 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [4 Sources store 0 B] [2 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [4 Sources store 0 B] [6 Sources 7,2
+aws_instance.elasticsearch-cluster (remote-exec): 0% [4 Sources store 0 B] [3 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [4 Sources store 0 B] [3 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:8 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/multiverse Sources [179 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [4 Sources store 0 B] [3 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:9 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/universe amd64 Packages [7,532 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [4 Sources store 0 B] [3 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [3 InRelease gpgv 107 kB] [9 Package
+aws_instance.elasticsearch-cluster (remote-exec): 0% [5 Sources store 0 B] [3 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [3 InRelease gpgv 107 kB] [9 Package
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [3 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [9 Packages 2,
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [9 Packages 5,
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:10 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/universe Translation-en [4,354 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:11 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/multiverse amd64 Packages [144 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:12 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/multiverse Translation-en [106 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:13 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main Sources [349 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:14 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/restricted Sources [2,536 B]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:15 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe Sources [270 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:16 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/multiverse Sources [8,756 B]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:17 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 Packages [1,199 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:18 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main Translation-en [447 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:19 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/restricted amd64 Packages [7,576 B]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:20 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/restricted Translation-en [2,272 B]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:21 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 Packages [805 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:22 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe Translation-en [338 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:23 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/multiverse amd64 Packages [17.1 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:24 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/multiverse Translation-en [8,632 B]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): Get:25 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/main Sources [4,848 B]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [6 Sources store 0 B] [7 InRelease g
+aws_instance.elasticsearch-cluster (remote-exec): 85% [6 Sources store 0 B] [Waiting for
+aws_instance.elasticsearch-cluster (remote-exec): Get:26 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/universe Sources [7,508 B]
+aws_instance.elasticsearch-cluster (remote-exec): 85% [6 Sources store 0 B] [Waiting for
+aws_instance.elasticsearch-cluster (remote-exec): Get:27 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/main amd64 Packages [7,280 B]
+aws_instance.elasticsearch-cluster (remote-exec): 85% [6 Sources store 0 B] [Waiting for
+aws_instance.elasticsearch-cluster (remote-exec): Get:28 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/main Translation-en [4,456 B]
+aws_instance.elasticsearch-cluster (remote-exec): 85% [6 Sources store 0 B] [Waiting for
+aws_instance.elasticsearch-cluster (remote-exec): Get:29 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/universe amd64 Packages [8,316 B]
+aws_instance.elasticsearch-cluster (remote-exec): 85% [6 Sources store 0 B] [Waiting for
+aws_instance.elasticsearch-cluster (remote-exec): Get:30 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-backports/universe Translation-en [4,476 B]
+aws_instance.elasticsearch-cluster (remote-exec): 85% [6 Sources store 0 B] [Waiting for
+aws_instance.elasticsearch-cluster (remote-exec): Get:31 http://security.ubuntu.com/ubuntu xenial-security/main Sources [169 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 85% [6 Sources store 0 B] [31 Sources 2
+aws_instance.elasticsearch-cluster (remote-exec): 85% [6 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): Get:32 http://security.ubuntu.com/ubuntu xenial-security/restricted Sources [2,116 B]
+aws_instance.elasticsearch-cluster (remote-exec): 85% [6 Sources store 0 B] [Waiting for
+aws_instance.elasticsearch-cluster (remote-exec): Get:33 http://security.ubuntu.com/ubuntu xenial-security/universe Sources [120 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 85% [6 Sources store 0 B] [33 Sources 8
+aws_instance.elasticsearch-cluster (remote-exec): 86% [6 Sources store 0 B] [Waiting for
+aws_instance.elasticsearch-cluster (remote-exec): Get:34 http://security.ubuntu.com/ubuntu xenial-security/multiverse Sources [3,400 B]
+aws_instance.elasticsearch-cluster (remote-exec): 86% [6 Sources store 0 B] [Waiting for
+aws_instance.elasticsearch-cluster (remote-exec): Get:35 http://security.ubuntu.com/ubuntu xenial-security/main amd64 Packages [927 kB]
+aws_instance.elasticsearch-cluster: Still creating... (40s elapsed)
+aws_instance.elasticsearch-cluster (remote-exec): 86% [6 Sources store 0 B] [35 Packages
+aws_instance.elasticsearch-cluster (remote-exec): 88% [6 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): Get:36 http://security.ubuntu.com/ubuntu xenial-security/main Translation-en [343 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 88% [6 Sources store 0 B] [36 Translati
+aws_instance.elasticsearch-cluster (remote-exec): 89% [6 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): Get:37 http://security.ubuntu.com/ubuntu xenial-security/restricted amd64 Packages [7,204 B]
+aws_instance.elasticsearch-cluster (remote-exec): 89% [6 Sources store 0 B] [37 Packages
+aws_instance.elasticsearch-cluster (remote-exec): 89% [6 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): Get:38 http://security.ubuntu.com/ubuntu xenial-security/restricted Translation-en [2,152 B]
+aws_instance.elasticsearch-cluster (remote-exec): 89% [6 Sources store 0 B] [38 Translati
+aws_instance.elasticsearch-cluster (remote-exec): 89% [6 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 90% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): 90% [8 Sources store 0 B] [Waiting for
+aws_instance.elasticsearch-cluster (remote-exec): Get:39 http://security.ubuntu.com/ubuntu xenial-security/universe amd64 Packages [502 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 90% [8 Sources store 0 B] [39 Packages
+aws_instance.elasticsearch-cluster (remote-exec): 91% [8 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 91% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): 91% [9 Packages store 0 B] [Waiting for
+aws_instance.elasticsearch-cluster (remote-exec): Get:40 http://security.ubuntu.com/ubuntu xenial-security/universe Translation-en [207 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 91% [9 Packages store 0 B] [40 Translat
+aws_instance.elasticsearch-cluster (remote-exec): 92% [9 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): Get:41 http://security.ubuntu.com/ubuntu xenial-security/multiverse amd64 Packages [6,084 B]
+aws_instance.elasticsearch-cluster (remote-exec): 92% [9 Packages store 0 B] [41 Packages
+aws_instance.elasticsearch-cluster (remote-exec): 92% [9 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): Get:42 http://security.ubuntu.com/ubuntu xenial-security/multiverse Translation-en [2,888 B]
+aws_instance.elasticsearch-cluster (remote-exec): 92% [9 Packages store 0 B] [42 Translat
+aws_instance.elasticsearch-cluster (remote-exec): 92% [9 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 92% [9 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 92% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 92% [10 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 92% [10 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 92% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 92% [11 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 93% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 93% [12 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 93% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 93% [13 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 93% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 93% [14 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 93% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 93% [15 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 94% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 94% [16 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 94% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 94% [17 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 94% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 94% [18 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 94% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 94% [19 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 95% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 95% [20 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 95% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 95% [21 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 95% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 95% [22 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 95% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 95% [23 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 95% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 95% [24 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 96% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 96% [25 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 96% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 96% [26 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 96% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 96% [27 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 96% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 96% [28 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 97% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 97% [29 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 97% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 97% [30 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 97% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 97% [31 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 97% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 97% [32 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 98% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 98% [33 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 98% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 98% [34 Sources store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 98% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 98% [35 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 98% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 98% [36 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 99% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 99% [37 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 99% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 99% [38 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 99% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 99% [39 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 99% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 99% [40 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 100% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 100% [41 Packages store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 100% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): 100% [42 Translation-en store 0 B]
+aws_instance.elasticsearch-cluster (remote-exec): 100% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Fetched 27.0 MB in 4s (6,086 kB/s)
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 1%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 5%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 5%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 8%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 8%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 8%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 8%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 9%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 9%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 43%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 43%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 62%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 62%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 63%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 63%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 63%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 63%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 69%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 70%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 70%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 81%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 81%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 89%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 89%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 94%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 94%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 95%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 95%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 95%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 95%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 97%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 97%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... Done
+aws_instance.elasticsearch-cluster (remote-exec): gpg: keyring `/tmp/tmpx2lg51iw/secring.gpg' created
+aws_instance.elasticsearch-cluster (remote-exec): gpg: keyring `/tmp/tmpx2lg51iw/pubring.gpg' created
+aws_instance.elasticsearch-cluster (remote-exec): gpg: requesting key F06FC659 from hkp server keyserver.ubuntu.com
+aws_instance.elasticsearch-cluster (remote-exec): gpg: /tmp/tmpx2lg51iw/trustdb.gpg: trustdb created
+aws_instance.elasticsearch-cluster (remote-exec): gpg: key F06FC659: public key "Launchpad PPA for J Fernyhough" imported
+aws_instance.elasticsearch-cluster (remote-exec): gpg: Total number processed: 1
+aws_instance.elasticsearch-cluster (remote-exec): gpg:               imported: 1  (RSA: 1)
+aws_instance.elasticsearch-cluster (remote-exec): OK
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Hit:1 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial InRelease
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Connecting to security.ubuntu.com (
+aws_instance.elasticsearch-cluster (remote-exec): Hit:2 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates InRelease
+aws_instance.elasticsearch-cluster (remote-exec): Hit:3 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-backports InRelease
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Connecting to security.ubuntu.com (
+aws_instance.elasticsearch-cluster (remote-exec): 0% [1 InRelease gpgv 247 kB] [Connectin
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Connecting to security.ubuntu.com (
+aws_instance.elasticsearch-cluster (remote-exec): 0% [2 InRelease gpgv 109 kB] [Connectin
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Connecting to security.ubuntu.com (
+aws_instance.elasticsearch-cluster (remote-exec): 0% [3 InRelease gpgv 107 kB] [Waiting f
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Waiting for headers] [Waiting for h
+aws_instance.elasticsearch-cluster (remote-exec): Hit:4 http://security.ubuntu.com/ubuntu xenial-security InRelease
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:5 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial InRelease
+aws_instance.elasticsearch-cluster (remote-exec): 0% [4 InRelease gpgv 109 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Connecting to ppa.launchpad.net (91
+aws_instance.elasticsearch-cluster (remote-exec): Ign:6 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial Release
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:7 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main amd64 Packages
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:8 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main all Packages
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:9 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en_US
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:10 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en
+aws_instance.elasticsearch-cluster: Still creating... (50s elapsed)
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:7 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main amd64 Packages
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:8 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main all Packages
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:9 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en_US
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:10 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:7 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main amd64 Packages
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:8 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main all Packages
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:9 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en_US
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:10 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:7 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main amd64 Packages
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:8 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main all Packages
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:9 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en_US
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:10 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:7 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main amd64 Packages
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:8 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main all Packages
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:9 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en_US
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:10 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Err:7 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main amd64 Packages
+aws_instance.elasticsearch-cluster (remote-exec):   403  Forbidden [IP: 91.189.95.83 80]
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:8 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main all Packages
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:9 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en_US
+aws_instance.elasticsearch-cluster (remote-exec): 20% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Ign:10 http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial/main Translation-en
+aws_instance.elasticsearch-cluster (remote-exec): 20% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 1%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 5%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 5%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 8%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 8%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 8%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 8%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 9%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 9%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 43%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 43%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 62%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 62%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 63%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 63%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 63%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 63%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 70%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 70%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 70%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 76%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 81%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 81%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 83%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 89%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 89%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 94%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 94%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 95%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 95%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 95%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 95%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 97%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 97%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 99%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... Done
+aws_instance.elasticsearch-cluster (remote-exec): W: The repository 'http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu xenial Release' does not have a Release file.
+aws_instance.elasticsearch-cluster (remote-exec): N: Data from such a repository can't be authenticated and is therefore potentially dangerous to use.
+aws_instance.elasticsearch-cluster (remote-exec): N: See apt-secure(8) manpage for repository creation and user configuration details.
+aws_instance.elasticsearch-cluster (remote-exec): E: Failed to fetch http://ppa.launchpad.net/jonathonf/python-3.6/ubuntu/dists/xenial/main/binary-amd64/Packages  403  Forbidden [IP: 91.189.95.83 80]
+aws_instance.elasticsearch-cluster (remote-exec): E: Some index files failed to download. They have been ignored, or old ones used instead.
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 100%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... Done
+aws_instance.elasticsearch-cluster (remote-exec): Building dependency tree... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Building dependency tree... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Building dependency tree... 50%
+aws_instance.elasticsearch-cluster (remote-exec): Building dependency tree... 50%
+aws_instance.elasticsearch-cluster (remote-exec): Building dependency tree
+aws_instance.elasticsearch-cluster (remote-exec): Reading state information... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Reading state information... 6%
+aws_instance.elasticsearch-cluster (remote-exec): Reading state information... Done
+aws_instance.elasticsearch-cluster (remote-exec): E: Unable to locate package python3.6
+aws_instance.elasticsearch-cluster (remote-exec): E: Couldn't find any package by glob 'python3.6'
+aws_instance.elasticsearch-cluster (remote-exec): E: Couldn't find any package by regex 'python3.6'
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... 100%
+aws_instance.elasticsearch-cluster (remote-exec): Reading package lists... Done
+aws_instance.elasticsearch-cluster (remote-exec): Building dependency tree... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Building dependency tree... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Building dependency tree... 50%
+aws_instance.elasticsearch-cluster (remote-exec): Building dependency tree... 50%
+aws_instance.elasticsearch-cluster (remote-exec): Building dependency tree
+aws_instance.elasticsearch-cluster (remote-exec): Reading state information... 0%
+aws_instance.elasticsearch-cluster (remote-exec): Reading state information... 6%
+aws_instance.elasticsearch-cluster (remote-exec): Reading state information... Done
+aws_instance.elasticsearch-cluster (remote-exec): The following additional packages will be installed:
+aws_instance.elasticsearch-cluster (remote-exec):   binutils build-essential cpp cpp-5
+aws_instance.elasticsearch-cluster (remote-exec):   dpkg-dev fakeroot g++ g++-5 gcc
+aws_instance.elasticsearch-cluster (remote-exec):   gcc-5 gcc-5-base
+aws_instance.elasticsearch-cluster (remote-exec):   libalgorithm-diff-perl
+aws_instance.elasticsearch-cluster (remote-exec):   libalgorithm-diff-xs-perl
+aws_instance.elasticsearch-cluster (remote-exec):   libalgorithm-merge-perl libasan2
+aws_instance.elasticsearch-cluster (remote-exec):   libatomic1 libc-dev-bin libc6
+aws_instance.elasticsearch-cluster (remote-exec):   libc6-dev libcc1-0 libcilkrts5
+aws_instance.elasticsearch-cluster (remote-exec):   libdpkg-perl libexpat1 libexpat1-dev
+aws_instance.elasticsearch-cluster (remote-exec):   libfakeroot libfile-fcntllock-perl
+aws_instance.elasticsearch-cluster (remote-exec):   libgcc-5-dev libgomp1 libisl15
+aws_instance.elasticsearch-cluster (remote-exec):   libitm1 liblsan0 libmpc3 libmpx0
+aws_instance.elasticsearch-cluster (remote-exec):   libpython3-dev libpython3.5
+aws_instance.elasticsearch-cluster (remote-exec):   libpython3.5-dev
+aws_instance.elasticsearch-cluster (remote-exec):   libpython3.5-minimal
+aws_instance.elasticsearch-cluster (remote-exec):   libpython3.5-stdlib libquadmath0
+aws_instance.elasticsearch-cluster (remote-exec):   libstdc++-5-dev libstdc++6 libtsan0
+aws_instance.elasticsearch-cluster (remote-exec):   libubsan0 linux-libc-dev make
+aws_instance.elasticsearch-cluster (remote-exec):   manpages-dev python-pip-whl
+aws_instance.elasticsearch-cluster (remote-exec):   python3-dev python3-setuptools
+aws_instance.elasticsearch-cluster (remote-exec):   python3-wheel python3.5
+aws_instance.elasticsearch-cluster (remote-exec):   python3.5-dev python3.5-minimal
+aws_instance.elasticsearch-cluster (remote-exec): Suggested packages:
+aws_instance.elasticsearch-cluster (remote-exec):   binutils-doc cpp-doc gcc-5-locales
+aws_instance.elasticsearch-cluster (remote-exec):   debian-keyring g++-multilib
+aws_instance.elasticsearch-cluster (remote-exec):   g++-5-multilib gcc-5-doc
+aws_instance.elasticsearch-cluster (remote-exec):   libstdc++6-5-dbg gcc-multilib
+aws_instance.elasticsearch-cluster (remote-exec):   autoconf automake libtool flex bison
+aws_instance.elasticsearch-cluster (remote-exec):   gdb gcc-doc gcc-5-multilib
+aws_instance.elasticsearch-cluster (remote-exec):   libgcc1-dbg libgomp1-dbg libitm1-dbg
+aws_instance.elasticsearch-cluster (remote-exec):   libatomic1-dbg libasan2-dbg
+aws_instance.elasticsearch-cluster (remote-exec):   liblsan0-dbg libtsan0-dbg
+aws_instance.elasticsearch-cluster (remote-exec):   libubsan0-dbg libcilkrts5-dbg
+aws_instance.elasticsearch-cluster (remote-exec):   libmpx0-dbg libquadmath0-dbg
+aws_instance.elasticsearch-cluster (remote-exec):   glibc-doc libstdc++-5-doc make-doc
+aws_instance.elasticsearch-cluster (remote-exec):   python-setuptools-doc python3.5-venv
+aws_instance.elasticsearch-cluster (remote-exec):   python3.5-doc binfmt-support
+aws_instance.elasticsearch-cluster (remote-exec): The following NEW packages will be installed:
+aws_instance.elasticsearch-cluster (remote-exec):   binutils build-essential cpp cpp-5
+aws_instance.elasticsearch-cluster (remote-exec):   dpkg-dev fakeroot g++ g++-5 gcc
+aws_instance.elasticsearch-cluster (remote-exec):   gcc-5 libalgorithm-diff-perl
+aws_instance.elasticsearch-cluster (remote-exec):   libalgorithm-diff-xs-perl
+aws_instance.elasticsearch-cluster (remote-exec):   libalgorithm-merge-perl libasan2
+aws_instance.elasticsearch-cluster (remote-exec):   libatomic1 libc-dev-bin libc6-dev
+aws_instance.elasticsearch-cluster (remote-exec):   libcc1-0 libcilkrts5 libdpkg-perl
+aws_instance.elasticsearch-cluster (remote-exec):   libexpat1-dev libfakeroot
+aws_instance.elasticsearch-cluster (remote-exec):   libfile-fcntllock-perl libgcc-5-dev
+aws_instance.elasticsearch-cluster (remote-exec):   libgomp1 libisl15 libitm1 liblsan0
+aws_instance.elasticsearch-cluster (remote-exec):   libmpc3 libmpx0 libpython3-dev
+aws_instance.elasticsearch-cluster (remote-exec):   libpython3.5-dev libquadmath0
+aws_instance.elasticsearch-cluster (remote-exec):   libstdc++-5-dev libtsan0 libubsan0
+aws_instance.elasticsearch-cluster (remote-exec):   linux-libc-dev make manpages-dev
+aws_instance.elasticsearch-cluster (remote-exec):   python-pip-whl python3-dev
+aws_instance.elasticsearch-cluster (remote-exec):   python3-pip python3-setuptools
+aws_instance.elasticsearch-cluster (remote-exec):   python3-wheel python3.5-dev
+aws_instance.elasticsearch-cluster (remote-exec): The following packages will be upgraded:
+aws_instance.elasticsearch-cluster (remote-exec):   gcc-5-base libc6 libexpat1
+aws_instance.elasticsearch-cluster (remote-exec):   libpython3.5 libpython3.5-minimal
+aws_instance.elasticsearch-cluster (remote-exec):   libpython3.5-stdlib libstdc++6
+aws_instance.elasticsearch-cluster (remote-exec):   python3.5 python3.5-minimal
+aws_instance.elasticsearch-cluster (remote-exec): 9 upgraded, 45 newly installed, 0 to remove and 211 not upgraded.
+aws_instance.elasticsearch-cluster (remote-exec): Need to get 86.7 MB of archives.
+aws_instance.elasticsearch-cluster (remote-exec): After this operation, 201 MB of additional disk space will be used.
+aws_instance.elasticsearch-cluster (remote-exec): 0% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:1 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libc6 amd64 2.23-0ubuntu11.2 [2,584 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 0% [1 libc6 14.0 kB/2,584 kB 1%]
+aws_instance.elasticsearch-cluster (remote-exec): 3% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:2 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libexpat1 amd64 2.1.0-7ubuntu0.16.04.5 [71.5 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 3% [2 libexpat1 36.2 kB/71.5 kB 51%]
+aws_instance.elasticsearch-cluster (remote-exec): 3% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:3 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libpython3.5 amd64 3.5.2-2ubuntu0~16.04.11 [1,360 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 3% [3 libpython3.5 25.3 kB/1,360 kB 2%]
+aws_instance.elasticsearch-cluster (remote-exec): 5% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:4 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 python3.5 amd64 3.5.2-2ubuntu0~16.04.11 [165 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 5% [4 python3.5 24.2 kB/165 kB 15%]
+aws_instance.elasticsearch-cluster (remote-exec): 5% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:5 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libpython3.5-stdlib amd64 3.5.2-2ubuntu0~16.04.11 [2,132 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 5% [5 libpython3.5-stdlib 10.7 kB/2,132
+aws_instance.elasticsearch-cluster (remote-exec): 8% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:6 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 python3.5-minimal amd64 3.5.2-2ubuntu0~16.04.11 [1,597 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 8% [6 python3.5-minimal 20.5 kB/1,597 k
+aws_instance.elasticsearch-cluster (remote-exec): 10% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): Get:7 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libpython3.5-minimal amd64 3.5.2-2ubuntu0~16.04.11 [525 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 10% [7 libpython3.5-minimal 16.0 kB/525
+aws_instance.elasticsearch-cluster (remote-exec): 10% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:8 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 libmpc3 amd64 1.0.3-1 [39.7 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 10% [8 libmpc3 11.2 kB/39.7 kB 28%]
+aws_instance.elasticsearch-cluster (remote-exec): 11% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:9 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 gcc-5-base amd64 5.4.0-6ubuntu1~16.04.12 [17.4 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 11% [9 gcc-5-base 17.4 kB/17.4 kB 100%]
+aws_instance.elasticsearch-cluster (remote-exec): 11% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:10 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libstdc++6 amd64 5.4.0-6ubuntu1~16.04.12 [393 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 11% [10 libstdc++6 22.9 kB/393 kB 6%]
+aws_instance.elasticsearch-cluster (remote-exec): 12% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:11 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 binutils amd64 2.26.1-1ubuntu1~16.04.8 [2,312 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 12% [11 binutils 22.7 kB/2,312 kB 1%]
+aws_instance.elasticsearch-cluster (remote-exec): 14% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:12 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libc-dev-bin amd64 2.23-0ubuntu11.2 [68.8 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 14% [12 libc-dev-bin 65.5 kB/68.8 kB 95
+aws_instance.elasticsearch-cluster (remote-exec): 15% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:13 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 linux-libc-dev amd64 4.4.0-189.219 [852 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 15% [13 linux-libc-dev 14.1 kB/852 kB 2
+aws_instance.elasticsearch-cluster (remote-exec): 16% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:14 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libc6-dev amd64 2.23-0ubuntu11.2 [2,083 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 16% [14 libc6-dev 19.9 kB/2,083 kB 1%]
+aws_instance.elasticsearch-cluster (remote-exec): 18% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:15 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 libisl15 amd64 0.16.1-1 [524 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 18% [15 libisl15 13.4 kB/524 kB 3%]
+aws_instance.elasticsearch-cluster (remote-exec): 19% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:16 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 cpp-5 amd64 5.4.0-6ubuntu1~16.04.12 [7,783 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 19% [16 cpp-5 2,370 B/7,783 kB 0%]
+aws_instance.elasticsearch-cluster (remote-exec): 27% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): Get:17 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 cpp amd64 4:5.3.1-1ubuntu1 [27.7 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 27% [17 cpp 27.7 kB/27.7 kB 100%]
+aws_instance.elasticsearch-cluster (remote-exec): 27% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:18 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libcc1-0 amd64 5.4.0-6ubuntu1~16.04.12 [38.8 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 27% [18 libcc1-0 38.8 kB/38.8 kB 100%]
+aws_instance.elasticsearch-cluster (remote-exec): 28% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:19 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgomp1 amd64 5.4.0-6ubuntu1~16.04.12 [55.2 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 28% [19 libgomp1 6,830 B/55.2 kB 12%]
+aws_instance.elasticsearch-cluster (remote-exec): 28% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:20 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libitm1 amd64 5.4.0-6ubuntu1~16.04.12 [27.4 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 28% [20 libitm1 27.4 kB/27.4 kB 100%]
+aws_instance.elasticsearch-cluster (remote-exec): 28% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:21 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libatomic1 amd64 5.4.0-6ubuntu1~16.04.12 [8,892 B]
+aws_instance.elasticsearch-cluster (remote-exec): 28% [21 libatomic1 8,892 B/8,892 B 100%
+aws_instance.elasticsearch-cluster (remote-exec): 29% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:22 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libasan2 amd64 5.4.0-6ubuntu1~16.04.12 [265 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 29% [22 libasan2 26.1 kB/265 kB 10%]
+aws_instance.elasticsearch-cluster (remote-exec): 29% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:23 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 liblsan0 amd64 5.4.0-6ubuntu1~16.04.12 [105 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 29% [23 liblsan0 50.3 kB/105 kB 48%]
+aws_instance.elasticsearch-cluster (remote-exec): 30% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): Get:24 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libtsan0 amd64 5.4.0-6ubuntu1~16.04.12 [244 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 30% [24 libtsan0 21.5 kB/244 kB 9%]
+aws_instance.elasticsearch-cluster (remote-exec): 30% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): Get:25 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libubsan0 amd64 5.4.0-6ubuntu1~16.04.12 [95.3 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 30% [25 libubsan0 26.1 kB/95.3 kB 27%]
+aws_instance.elasticsearch-cluster (remote-exec): 31% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:26 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libcilkrts5 amd64 5.4.0-6ubuntu1~16.04.12 [40.0 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 31% [26 libcilkrts5 16.4 kB/40.0 kB 41%
+aws_instance.elasticsearch-cluster (remote-exec): 31% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:27 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libmpx0 amd64 5.4.0-6ubuntu1~16.04.12 [9,762 B]
+aws_instance.elasticsearch-cluster (remote-exec): 31% [27 libmpx0 9,762 B/9,762 B 100%]
+aws_instance.elasticsearch-cluster (remote-exec): 32% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:28 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libquadmath0 amd64 5.4.0-6ubuntu1~16.04.12 [131 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 32% [28 libquadmath0 23.9 kB/131 kB 18%
+aws_instance.elasticsearch-cluster (remote-exec): 32% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:29 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libgcc-5-dev amd64 5.4.0-6ubuntu1~16.04.12 [2,239 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 32% [29 libgcc-5-dev 23.2 kB/2,239 kB 1
+aws_instance.elasticsearch-cluster (remote-exec): 35% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:30 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 gcc-5 amd64 5.4.0-6ubuntu1~16.04.12 [8,612 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 35% [30 gcc-5 19.7 kB/8,612 kB 0%]
+aws_instance.elasticsearch-cluster (remote-exec): 43% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:31 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 gcc amd64 4:5.3.1-1ubuntu1 [5,244 B]
+aws_instance.elasticsearch-cluster (remote-exec): 43% [31 gcc 5,244 B/5,244 B 100%]
+aws_instance.elasticsearch-cluster (remote-exec): 43% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): Get:32 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libstdc++-5-dev amd64 5.4.0-6ubuntu1~16.04.12 [1,428 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 43% [32 libstdc++-5-dev 44.1 kB/1,428 k
+aws_instance.elasticsearch-cluster (remote-exec): 45% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:33 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 g++-5 amd64 5.4.0-6ubuntu1~16.04.12 [8,430 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 45% [33 g++-5 51.4 kB/8,430 kB 1%]
+aws_instance.elasticsearch-cluster (remote-exec): 53% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:34 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 g++ amd64 4:5.3.1-1ubuntu1 [1,504 B]
+aws_instance.elasticsearch-cluster (remote-exec): 53% [34 g++ 1,504 B/1,504 B 100%]
+aws_instance.elasticsearch-cluster (remote-exec): 53% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): Get:35 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 make amd64 4.1-6 [151 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 53% [35 make 14.3 kB/151 kB 9%]
+aws_instance.elasticsearch-cluster (remote-exec): 54% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): Get:36 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libdpkg-perl all 1.18.4ubuntu1.6 [195 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 54% [36 libdpkg-perl 24.2 kB/195 kB 12%
+aws_instance.elasticsearch-cluster (remote-exec): 55% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:37 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 dpkg-dev all 1.18.4ubuntu1.6 [584 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 55% [37 dpkg-dev 11.2 kB/584 kB 2%]
+aws_instance.elasticsearch-cluster (remote-exec): 55% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:38 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 build-essential amd64 12.1ubuntu2 [4,758 B]
+aws_instance.elasticsearch-cluster (remote-exec): 55% [38 build-essential 4,758 B/4,758 B
+aws_instance.elasticsearch-cluster (remote-exec): 56% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): Get:39 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 libfakeroot amd64 1.20.2-1ubuntu1 [25.5 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 56% [39 libfakeroot 11.2 kB/25.5 kB 44%
+aws_instance.elasticsearch-cluster (remote-exec): 56% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:40 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 fakeroot amd64 1.20.2-1ubuntu1 [61.8 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 56% [40 fakeroot 2,486 B/61.8 kB 4%]
+aws_instance.elasticsearch-cluster (remote-exec): 57% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:41 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 libalgorithm-diff-perl all 1.19.03-1 [47.6 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 57% [41 libalgorithm-diff-perl 26.1 kB/
+aws_instance.elasticsearch-cluster (remote-exec): 57% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:42 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 libalgorithm-diff-xs-perl amd64 0.04-4build1 [11.0 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 57% [42 libalgorithm-diff-xs-perl 11.0
+aws_instance.elasticsearch-cluster (remote-exec): 57% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:43 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 libalgorithm-merge-perl all 0.08-3 [12.0 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 57% [43 libalgorithm-merge-perl 11.2 kB
+aws_instance.elasticsearch-cluster (remote-exec): 58% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:44 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libexpat1-dev amd64 2.1.0-7ubuntu0.16.04.5 [115 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 58% [44 libexpat1-dev 24.1 kB/115 kB 21
+aws_instance.elasticsearch-cluster (remote-exec): 58% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:45 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 libfile-fcntllock-perl amd64 0.22-3 [32.0 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 58% [45 libfile-fcntllock-perl 11.2 kB/
+aws_instance.elasticsearch-cluster (remote-exec): 59% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:46 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 libpython3.5-dev amd64 3.5.2-2ubuntu0~16.04.11 [37.3 MB]
+aws_instance.elasticsearch-cluster (remote-exec): 59% [46 libpython3.5-dev 14.7 kB/37.3 M
+aws_instance.elasticsearch-cluster: Still creating... (1m0s elapsed)
+aws_instance.elasticsearch-cluster (remote-exec): 88% [46 libpython3.5-dev 31.6 MB/37.3 M
+aws_instance.elasticsearch-cluster (remote-exec): 94% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:47 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 libpython3-dev amd64 3.5.1-3 [6,926 B]
+aws_instance.elasticsearch-cluster (remote-exec): 94% [47 libpython3-dev 6,926 B/6,926 B
+aws_instance.elasticsearch-cluster (remote-exec): 94% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:48 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 manpages-dev all 4.04-2 [2,048 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 94% [48 manpages-dev 6,714 B/2,048 kB 0
+aws_instance.elasticsearch-cluster (remote-exec): 96% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:49 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 python-pip-whl all 8.1.1-2ubuntu0.4 [1,110 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 96% [49 python-pip-whl 11.2 kB/1,110 kB
+aws_instance.elasticsearch-cluster (remote-exec): 98% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:50 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/main amd64 python3.5-dev amd64 3.5.2-2ubuntu0~16.04.11 [413 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 98% [50 python3.5-dev 24.2 kB/413 kB 6%
+aws_instance.elasticsearch-cluster (remote-exec): 98% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:51 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 python3-dev amd64 3.5.1-3 [1,186 B]
+aws_instance.elasticsearch-cluster (remote-exec): 98% [51 python3-dev 1,186 B/1,186 B 100
+aws_instance.elasticsearch-cluster (remote-exec): 99% [Waiting for headers]
+aws_instance.elasticsearch-cluster (remote-exec): Get:52 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial-updates/universe amd64 python3-pip all 8.1.1-2ubuntu0.4 [109 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 99% [52 python3-pip 23.3 kB/109 kB 21%]
+aws_instance.elasticsearch-cluster (remote-exec): 99% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:53 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/main amd64 python3-setuptools all 20.7.0-1 [88.0 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 99% [53 python3-setuptools 24.3 kB/88.0
+aws_instance.elasticsearch-cluster (remote-exec): 100% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Get:54 http://us-west-1.ec2.archive.ubuntu.com/ubuntu xenial/universe amd64 python3-wheel all 0.29.0-1 [48.1 kB]
+aws_instance.elasticsearch-cluster (remote-exec): 100% [54 python3-wheel 48.1 kB/48.1 kB
+aws_instance.elasticsearch-cluster (remote-exec): 100% [Working]
+aws_instance.elasticsearch-cluster (remote-exec): Fetched 86.7 MB in 1s (54.3 MB/s)
+aws_instance.elasticsearch-cluster (remote-exec): Extracting templates from packages: 55%
+aws_instance.elasticsearch-cluster (remote-exec): Extracting templates from packages: 100%
+aws_instance.elasticsearch-cluster (remote-exec): Preconfiguring packages ...
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ...
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 5%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 10%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 15%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 20%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 25%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 30%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 35%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 40%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 45%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 50%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 55%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 60%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 65%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 70%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 75%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 80%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 85%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 90%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 95%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 100%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 51122 files and directories currently installed.)
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libc6_2.23-0ubuntu11.2_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libc6:amd64 (2.23-0ubuntu11.2) over (2.23-0ubuntu10) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libc6:amd64 (2.23-0ubuntu11.2) ...
+aws_instance.elasticsearch-cluster (remote-exec): Processing triggers for libc-bin (2.23-0ubuntu10) ...
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ...
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 5%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 10%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 15%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 20%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 25%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 30%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 35%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 40%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 45%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 50%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 55%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 60%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 65%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 70%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 75%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 80%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 85%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 90%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 95%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 100%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 51122 files and directories currently installed.)
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libexpat1_2.1.0-7ubuntu0.16.04.5_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libexpat1:amd64 (2.1.0-7ubuntu0.16.04.5) over (2.1.0-7ubuntu0.16.04.3) ...
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libpython3.5_3.5.2-2ubuntu0~16.04.11_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libpython3.5:amd64 (3.5.2-2ubuntu0~16.04.11) over (3.5.2-2ubuntu0~16.04.4) ...
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../python3.5_3.5.2-2ubuntu0~16.04.11_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking python3.5 (3.5.2-2ubuntu0~16.04.11) over (3.5.2-2ubuntu0~16.04.4) ...
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libpython3.5-stdlib_3.5.2-2ubuntu0~16.04.11_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libpython3.5-stdlib:amd64 (3.5.2-2ubuntu0~16.04.11) over (3.5.2-2ubuntu0~16.04.4) ...
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../python3.5-minimal_3.5.2-2ubuntu0~16.04.11_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking python3.5-minimal (3.5.2-2ubuntu0~16.04.11) over (3.5.2-2ubuntu0~16.04.4) ...
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libpython3.5-minimal_3.5.2-2ubuntu0~16.04.11_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libpython3.5-minimal:amd64 (3.5.2-2ubuntu0~16.04.11) over (3.5.2-2ubuntu0~16.04.4) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libmpc3:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libmpc3_1.0.3-1_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libmpc3:amd64 (1.0.3-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../gcc-5-base_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking gcc-5-base:amd64 (5.4.0-6ubuntu1~16.04.12) over (5.4.0-6ubuntu1~16.04.5) ...
+aws_instance.elasticsearch-cluster (remote-exec): Processing triggers for libc-bin (2.23-0ubuntu10) ...
+aws_instance.elasticsearch-cluster (remote-exec): Processing triggers for mime-support (3.59ubuntu1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Processing triggers for man-db (2.7.5-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up gcc-5-base:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ...
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 5%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 10%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 15%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 20%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 25%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 30%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 35%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 40%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 45%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 50%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 55%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 60%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 65%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 70%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 75%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 80%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 85%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 90%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 95%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 100%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 51127 files and directories currently installed.)
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libstdc++6_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libstdc++6:amd64 (5.4.0-6ubuntu1~16.04.12) over (5.4.0-6ubuntu1~16.04.5) ...
+aws_instance.elasticsearch-cluster (remote-exec): Processing triggers for libc-bin (2.23-0ubuntu10) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libstdc++6:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Processing triggers for libc-bin (2.23-0ubuntu10) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package binutils.
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ...
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 5%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 10%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 15%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 20%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 25%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 30%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 35%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 40%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 45%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 50%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 55%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 60%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 65%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 70%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 75%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 80%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 85%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 90%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 95%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 100%
+aws_instance.elasticsearch-cluster (remote-exec): (Reading database ... 51127 files and directories currently installed.)
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../binutils_2.26.1-1ubuntu1~16.04.8_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking binutils (2.26.1-1ubuntu1~16.04.8) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libc-dev-bin.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libc-dev-bin_2.23-0ubuntu11.2_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libc-dev-bin (2.23-0ubuntu11.2) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package linux-libc-dev:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../linux-libc-dev_4.4.0-189.219_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking linux-libc-dev:amd64 (4.4.0-189.219) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libc6-dev:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libc6-dev_2.23-0ubuntu11.2_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libc6-dev:amd64 (2.23-0ubuntu11.2) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libisl15:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libisl15_0.16.1-1_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libisl15:amd64 (0.16.1-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package cpp-5.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../cpp-5_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking cpp-5 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package cpp.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../cpp_4%3a5.3.1-1ubuntu1_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking cpp (4:5.3.1-1ubuntu1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libcc1-0:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libcc1-0_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libcc1-0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libgomp1:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libgomp1_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libgomp1:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libitm1:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libitm1_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libitm1:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libatomic1:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libatomic1_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libatomic1:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libasan2:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libasan2_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libasan2:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package liblsan0:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../liblsan0_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking liblsan0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libtsan0:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libtsan0_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libtsan0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libubsan0:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libubsan0_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libubsan0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libcilkrts5:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libcilkrts5_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libcilkrts5:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libmpx0:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libmpx0_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libmpx0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libquadmath0:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libquadmath0_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libquadmath0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libgcc-5-dev:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libgcc-5-dev_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libgcc-5-dev:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package gcc-5.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../gcc-5_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking gcc-5 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package gcc.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../gcc_4%3a5.3.1-1ubuntu1_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking gcc (4:5.3.1-1ubuntu1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libstdc++-5-dev:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libstdc++-5-dev_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libstdc++-5-dev:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package g++-5.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../g++-5_5.4.0-6ubuntu1~16.04.12_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking g++-5 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package g++.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../g++_4%3a5.3.1-1ubuntu1_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking g++ (4:5.3.1-1ubuntu1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package make.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../archives/make_4.1-6_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking make (4.1-6) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libdpkg-perl.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libdpkg-perl_1.18.4ubuntu1.6_all.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libdpkg-perl (1.18.4ubuntu1.6) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package dpkg-dev.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../dpkg-dev_1.18.4ubuntu1.6_all.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking dpkg-dev (1.18.4ubuntu1.6) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package build-essential.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../build-essential_12.1ubuntu2_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking build-essential (12.1ubuntu2) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libfakeroot:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libfakeroot_1.20.2-1ubuntu1_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libfakeroot:amd64 (1.20.2-1ubuntu1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package fakeroot.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../fakeroot_1.20.2-1ubuntu1_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking fakeroot (1.20.2-1ubuntu1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libalgorithm-diff-perl.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libalgorithm-diff-perl_1.19.03-1_all.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libalgorithm-diff-perl (1.19.03-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libalgorithm-diff-xs-perl.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libalgorithm-diff-xs-perl_0.04-4build1_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libalgorithm-diff-xs-perl (0.04-4build1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libalgorithm-merge-perl.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libalgorithm-merge-perl_0.08-3_all.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libalgorithm-merge-perl (0.08-3) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libexpat1-dev:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libexpat1-dev_2.1.0-7ubuntu0.16.04.5_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libexpat1-dev:amd64 (2.1.0-7ubuntu0.16.04.5) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libfile-fcntllock-perl.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libfile-fcntllock-perl_0.22-3_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libfile-fcntllock-perl (0.22-3) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libpython3.5-dev:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libpython3.5-dev_3.5.2-2ubuntu0~16.04.11_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libpython3.5-dev:amd64 (3.5.2-2ubuntu0~16.04.11) ...
+aws_instance.elasticsearch-cluster: Still creating... (1m10s elapsed)
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package libpython3-dev:amd64.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../libpython3-dev_3.5.1-3_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking libpython3-dev:amd64 (3.5.1-3) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package manpages-dev.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../manpages-dev_4.04-2_all.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking manpages-dev (4.04-2) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package python-pip-whl.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../python-pip-whl_8.1.1-2ubuntu0.4_all.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking python-pip-whl (8.1.1-2ubuntu0.4) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package python3.5-dev.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../python3.5-dev_3.5.2-2ubuntu0~16.04.11_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking python3.5-dev (3.5.2-2ubuntu0~16.04.11) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package python3-dev.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../python3-dev_3.5.1-3_amd64.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking python3-dev (3.5.1-3) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package python3-pip.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../python3-pip_8.1.1-2ubuntu0.4_all.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking python3-pip (8.1.1-2ubuntu0.4) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package python3-setuptools.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../python3-setuptools_20.7.0-1_all.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking python3-setuptools (20.7.0-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Selecting previously unselected package python3-wheel.
+aws_instance.elasticsearch-cluster (remote-exec): Preparing to unpack .../python3-wheel_0.29.0-1_all.deb ...
+aws_instance.elasticsearch-cluster (remote-exec): Unpacking python3-wheel (0.29.0-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Processing triggers for libc-bin (2.23-0ubuntu10) ...
+aws_instance.elasticsearch-cluster (remote-exec): Processing triggers for man-db (2.7.5-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libexpat1:amd64 (2.1.0-7ubuntu0.16.04.5) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libpython3.5-minimal:amd64 (3.5.2-2ubuntu0~16.04.11) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libpython3.5-stdlib:amd64 (3.5.2-2ubuntu0~16.04.11) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libpython3.5:amd64 (3.5.2-2ubuntu0~16.04.11) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up python3.5-minimal (3.5.2-2ubuntu0~16.04.11) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up python3.5 (3.5.2-2ubuntu0~16.04.11) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libmpc3:amd64 (1.0.3-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up binutils (2.26.1-1ubuntu1~16.04.8) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libc-dev-bin (2.23-0ubuntu11.2) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up linux-libc-dev:amd64 (4.4.0-189.219) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libc6-dev:amd64 (2.23-0ubuntu11.2) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libisl15:amd64 (0.16.1-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up cpp-5 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up cpp (4:5.3.1-1ubuntu1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libcc1-0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libgomp1:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libitm1:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libatomic1:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libasan2:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up liblsan0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libtsan0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libubsan0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libcilkrts5:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libmpx0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libquadmath0:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libgcc-5-dev:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up gcc-5 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up gcc (4:5.3.1-1ubuntu1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libstdc++-5-dev:amd64 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up g++-5 (5.4.0-6ubuntu1~16.04.12) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up g++ (4:5.3.1-1ubuntu1) ...
+aws_instance.elasticsearch-cluster (remote-exec): update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+aws_instance.elasticsearch-cluster (remote-exec): Setting up make (4.1-6) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libdpkg-perl (1.18.4ubuntu1.6) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up dpkg-dev (1.18.4ubuntu1.6) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up build-essential (12.1ubuntu2) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libfakeroot:amd64 (1.20.2-1ubuntu1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up fakeroot (1.20.2-1ubuntu1) ...
+aws_instance.elasticsearch-cluster (remote-exec): update-alternatives: using /usr/bin/fakeroot-sysv to provide /usr/bin/fakeroot (fakeroot) in auto mode
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libalgorithm-diff-perl (1.19.03-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libalgorithm-diff-xs-perl (0.04-4build1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libalgorithm-merge-perl (0.08-3) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libexpat1-dev:amd64 (2.1.0-7ubuntu0.16.04.5) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libfile-fcntllock-perl (0.22-3) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libpython3.5-dev:amd64 (3.5.2-2ubuntu0~16.04.11) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up libpython3-dev:amd64 (3.5.1-3) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up manpages-dev (4.04-2) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up python-pip-whl (8.1.1-2ubuntu0.4) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up python3.5-dev (3.5.2-2ubuntu0~16.04.11) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up python3-dev (3.5.1-3) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up python3-pip (8.1.1-2ubuntu0.4) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up python3-setuptools (20.7.0-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Setting up python3-wheel (0.29.0-1) ...
+aws_instance.elasticsearch-cluster (remote-exec): Processing triggers for libc-bin (2.23-0ubuntu10) ...
+aws_instance.elasticsearch-cluster: Still creating... (1m20s elapsed)
+aws_instance.elasticsearch-cluster: Provisioning with 'local-exec'...
+aws_instance.elasticsearch-cluster (local-exec): Executing: ["/bin/sh" "-c" "      sleep 600;\n\t  >elasticsearch-cluster.ini;\n\t  echo \"[elasticsearch-cluster]\" | tee -a elasticsearch-cluster.ini;\n\t  echo \"54.183.101.85 ansible_user=ubuntu ansible_ssh_private_key_file=/home/vikas/cmrepo-devops-doc/credentials/pem/kp-cm-base\" | tee -a elasticsearch-cluster.ini;\n      export ANSIBLE_HOST_KEY_CHECKING=False;\n\t  ansible-playbook -u ubuntu --private-key /home/vikas/cmrepo-devops-doc/credentials/pem/kp-cm-base -i elasticsearch-cluster.ini ../ansible_workspace/site.yml\n   "]
+aws_instance.elasticsearch-cluster: Still creating... (1m30s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (1m40s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (1m50s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (2m0s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (2m10s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (2m20s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (2m30s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (2m40s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (2m50s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (3m0s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (3m10s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (3m20s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (3m30s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (3m40s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (3m50s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (4m0s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (4m10s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (4m20s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (4m30s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (4m40s elapsed)
+aws_instance.elasticsearch-cluster: Still creating... (4m50s elapsed)
+

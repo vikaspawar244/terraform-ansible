@@ -1,0 +1,23 @@
+---
+    - name: Install JRE
+      apt: pkg=openjdk-6-jre-headless state=latest install_recommends=no update_cache=yes
+
+    - name: Download ElasticSearch package
+      get_url: url=http://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.0.deb dest=~/elasticsearch-0.90.0.deb
+
+    - name: Install ES .deb file
+      shell: dpkg -i ~/elasticsearch-0.90.0.deb
+      notify: restart elasticsearch
+
+    - name: Install cloud-aws plugin
+      shell: /usr/share/elasticsearch/bin/plugin -install elasticsearch/elasticsearch-cloud-aws/1.11.0
+      notify: restart elasticsearch
+
+    - name: Make elasticsearch config dir
+      file: path=/etc/elasticsearch/ state=directory
+
+    - name: Copy over Elasticsearch settings
+      copy: src=./elasticsearch/elasticsearch.yml dest=/etc/elasticsearch/elasticsearch.yml
+      notify: restart elasticsearch
+
+
