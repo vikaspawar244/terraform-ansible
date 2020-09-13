@@ -47,7 +47,7 @@ variable "instance_count" {
 
 
 variable "private_key" {
-  default = "/home/vikas/cmrepo-devops-doc/credentials/pem/kp-cm-base"
+  default = "/home/vikas/vp/vp-base.pem"
 }
 
 variable "ansible_user" {
