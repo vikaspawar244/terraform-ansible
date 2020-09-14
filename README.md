@@ -5,9 +5,9 @@ Elasticsearch cluster setup using Terrafrom and Ansible tool.
  - The playbook was built and tested on Ubuntu 16.04 VMs, for Elasticsearch versions 6.x 
  - You will need Ansible installed and running
  - In the terminal on the machine hosting Ansible, clone this repo.
- - Cd into the directory, and run:
+ - Cd into the directory, 
  - cd terraform-ansible/
-  Info: 
+  More Info: 
    Terraform has four essential commands that allow us to deal with an end-to-end workflow:
         terraform init
 	terraform plan
