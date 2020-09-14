@@ -1,4 +1,4 @@
-ansible-playbook -u ubuntu --private-key /home/vikas/cmrepo-devops-doc/credentials/pem/kp-cm-base -i elasticsearch-cluster.ini ../ansible_workspace/site.yml
+ansible-playbook -u ubuntu --private-key /home/vikas/myvpkey.pem -i elasticsearch-cluster.ini ../ansible_workspace/site.yml
 [WARNING]: Invalid characters were found in group names but not replaced, use -vvvv to see details
 
 PLAY [elasticsearch-cluster] *****************************************************************************************************************
